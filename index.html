@@ -290,6 +290,70 @@
     .fi-2, .fi-4, .fi-6 { right: -6px; }
   }
 
+  /* ---------- Hero badge ---------- */
+  .hero-badge {
+    position: absolute;
+    top: 16%;
+    right: 6%;
+    z-index: 3;
+    width: 116px;
+    height: 116px;
+    border-radius: 50%;
+    background: var(--mustard);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+    border: 3px dashed rgba(255,255,255,.55);
+    box-shadow: 0 10px 26px rgba(240,129,60,.35);
+    transform: rotate(-9deg);
+    animation: badge-float 4s ease-in-out infinite;
+  }
+  .hero-badge strong { font-size: 15px; }
+  .hero-badge svg { margin-bottom: 4px; }
+  @keyframes badge-float {
+    0%, 100% { transform: rotate(-9deg) translateY(0); }
+    50% { transform: rotate(-9deg) translateY(-8px); }
+  }
+  @media (max-width: 860px) {
+    .hero-badge { width: 86px; height: 86px; font-size: 10.5px; top: 4%; right: 4%; }
+    .hero-badge strong { font-size: 12px; }
+  }
+
+  /* ---------- Subject chips (marquee) ---------- */
+  .subject-marquee {
+    max-width: 640px;
+    margin: 6px auto 30px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .subject-track {
+    display: flex;
+    width: max-content;
+    gap: 10px;
+    animation: marquee-scroll 18s linear infinite;
+  }
+  .subject-marquee:hover .subject-track { animation-play-state: paused; }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .subject-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--white); border-radius: 10px; padding: 8px 14px;
+    box-shadow: var(--shadow-soft); border: 1px solid rgba(30,58,95,.08);
+    font-size: 13px; font-weight: 600; color: var(--forest-dark);
+    white-space: nowrap;
+  }
+  .subject-chip svg { stroke: var(--forest); flex-shrink: 0; }
+  .subject-chip:nth-child(even) svg { stroke: var(--mustard); }
+
   /* ---------- Reveal on scroll ---------- */
   .reveal {
     opacity: 0;
@@ -654,33 +718,34 @@
     <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke-width="2"><path d="M4 4 C4 12 22 14 22 22 M22 4 C22 12 4 14 4 22"/></svg>
   </span>
   <span class="float-icon fi-7">∑x²</span>
-  <span class="float-icon mustard fi-8">√x</span>
-
+ <span class="hero-badge">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3L22 9l-5 5.1L18.2 22 12 18.3 5.8 22 7 14.1 2 9l7.1-.7Z"/></svg>
+  First Session<br><strong>FREE</strong>
+</span>
   <div class="hero-inner">
     <span class="eyebrow"><span class="dot"></span> Grades 5–12</span>
     <h1>Private <span class="accent">Tutor</span></h1>
     <p class="sub" style="font-weight:700;">Interactive tutoring for students in Grade 5–12.</p>
-    <div class="subject-chips reveal">
-      <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 6l7 7-7 7M20 6l-5 12"/></svg>Math</span>
-      <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-9 0-16 7-16 16 9 0 16-7 16-16Z"/><path d="M6 18c3-5 6-8 12-12"/></svg>Biology</span>
-      <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/></svg>Physics</span>
-      <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6M10 2v6l-6 11a1.8 1.8 0 0 0 1.6 2.7h12.8a1.8 1.8 0 0 0 1.6-2.7L14 8V2"/><path d="M7.5 15h9"/></svg>Chemistry</span>
-      <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h13"/><path d="M9 7h6M9 11h6"/></svg>SAT</span>
-      <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v3H9zM8.5 12.5l2.5 2.5 4.5-5"/></svg>ACT</span>
-    </div>
-    <div class="hero-actions">
+   <div class="subject-marquee reveal">
+  <div class="subject-track">
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 6l7 7-7 7M20 6l-5 12"/></svg>Math</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-9 0-16 7-16 16 9 0 16-7 16-16Z"/><path d="M6 18c3-5 6-8 12-12"/></svg>Biology</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/></svg>Physics</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6M10 2v6l-6 11a1.8 1.8 0 0 0 1.6 2.7h12.8a1.8 1.8 0 0 0 1.6-2.7L14 8V2"/><path d="M7.5 15h9"/></svg>Chemistry</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h13"/><path d="M9 7h6M9 11h6"/></svg>SAT</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v3H9zM8.5 12.5l2.5 2.5 4.5-5"/></svg>ACT</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 6l7 7-7 7M20 6l-5 12"/></svg>Math</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-9 0-16 7-16 16 9 0 16-7 16-16Z"/><path d="M6 18c3-5 6-8 12-12"/></svg>Biology</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/></svg>Physics</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6M10 2v6l-6 11a1.8 1.8 0 0 0 1.6 2.7h12.8a1.8 1.8 0 0 0 1.6-2.7L14 8V2"/><path d="M7.5 15h9"/></svg>Chemistry</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h13"/><path d="M9 7h6M9 11h6"/></svg>SAT</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v3H9zM8.5 12.5l2.5 2.5 4.5-5"/></svg>ACT</span>
+  </div>
+</div>
+   <div class="hero-actions">
       <a href="#contact" class="btn btn-primary">Book Free Session</a>
       <a href="#programs" class="btn btn-secondary">Get Started</a>
     </div>
-  </div>
-</section>
-
-<!-- ===== FREE CONSULTATION BANNER ===== -->
-<section class="consult">
-  <div class="consult-inner reveal">
-    <h2>First Session Free</h2>
-    <p>Start with a free consultation and first session to understand your student's goals and learning needs.</p>
-    <a href="#contact" class="btn btn-primary">Schedule Free Session</a>
   </div>
 </section>
 
@@ -693,12 +758,10 @@
     </div>
     <div class="services-grid">
       <div class="service-card reveal reveal-stagger" style="--delay:.05s">
-        <div class="service-icon"></div>
         <h3>Homework Help</h3>
         <p>Get support understanding assignments and building strong foundations.</p>
       </div>
       <div class="service-card reveal reveal-stagger" style="--delay:.15s">
-        <div class="service-icon"></div>
         <h3>Test Prep</h3>
         <p>Preparation for:</p>
         <ul>
@@ -708,12 +771,10 @@
         </ul>
       </div>
       <div class="service-card reveal reveal-stagger" style="--delay:.25s">
-        <div class="service-icon"></div>
         <h3>Better Grades</h3>
         <p>Develop stronger study habits and improve academic performance.</p>
       </div>
       <div class="service-card reveal reveal-stagger" style="--delay:.35s">
-        <div class="service-icon"></div>
         <h3>Personalized Learning</h3>
         <p>Custom lesson plans with interactive teaching designed around each student's needs.</p>
       </div>
@@ -809,7 +870,7 @@
   <div class="about reveal">
     <div class="about-inner">
       <span class="about-badge">Meet Your Tutor</span>
-      <h2>A Science &amp; Elshaday Tilahun</h2>
+      <h2> &amp; Elshaday Tilahun</h2>
       <div class="about-cred">
         <p><strong>MS, Engineering, Science &amp; Technology Entrepreneurship</strong> — University of Notre Dame</p>
         <p><strong>B.S. Biology</strong></p>
