@@ -579,9 +579,15 @@
     border: 1px solid rgba(30,58,95,.06);
     height: 100%;
   }
-  .contact-panel h3 { font-size: 20px; margin-bottom: 8px; }
+ .contact-panel h3 { font-size: 20px; margin-bottom: 8px; }
   .contact-panel p.desc { color: #55645D; font-size: 14.5px; margin-bottom: 22px; }
 
+  @media (max-width: 640px) {
+    .contact-panel h3,
+    .contact-panel p.desc {
+      text-align: center;
+    }
+  }
   .calendly-frame-wrap {
     border-radius: var(--radius-md);
     overflow: hidden;
