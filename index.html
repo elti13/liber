@@ -170,6 +170,18 @@
 
   .nav-cta { display: none; }
 
+  .nav-contact-mobile {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--forest);
+    padding: 6px 4px;
+  }
+  @media (min-width: 860px) {
+    .nav-contact-mobile { display: none; }
+  }
+
   .nav-burger {
     display: flex;
     flex-direction: column;
@@ -701,6 +713,7 @@
       <a href="#contact">Contact</a>
     </nav>
     <a href="#contact" class="btn btn-primary nav-cta">Book Free Session</a>
+    <a href="#contact" class="nav-contact-mobile">Contact Us</a>
     <button class="nav-burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
