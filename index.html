@@ -6,7 +6,7 @@
 <title>Ro'i Learning — Confidence in STEM</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
  :root{
     --bg: #F7FAFD;
@@ -32,14 +32,14 @@
   body {
     background: var(--bg);
     color: var(--charcoal);
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: 'Inter', 'Noto Sans Ethiopic', -apple-system, sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
   h1, h2, h3, .display {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Fraunces', 'Noto Sans Ethiopic', Georgia, serif;
     font-weight: 600;
     letter-spacing: -0.01em;
     color: var(--forest-dark);
@@ -169,6 +169,27 @@
   .nav-links a:hover::after { transform: scaleX(1); }
 
   .nav-cta { display: none; }
+
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--sage-light);
+    color: var(--forest-dark);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    padding: 7px 13px;
+    border-radius: 100px;
+    margin-right: 8px;
+    transition: background .2s var(--ease);
+  }
+  .lang-toggle:hover { background: var(--mustard-soft); }
+  .lang-toggle .lang-en, .lang-toggle .lang-am { transition: color .2s var(--ease); }
+  body.lang-am .lang-toggle .lang-am,
+  body:not(.lang-am) .lang-toggle .lang-en {
+    color: var(--mustard);
+  }
 
   .nav-contact-mobile {
     display: inline-flex;
@@ -708,21 +729,24 @@
   <div class="nav-inner">
     <a href="#top" class="logo"><span class="l-letter">R</span>o'i Learning</a>
     <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#programs">Programs</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" data-en="About" data-am="ስለ እኛ">About</a>
+      <a href="#programs" data-en="Programs" data-am="ፕሮግራሞች">Programs</a>
+      <a href="#contact" data-en="Contact" data-am="ያግኙን">Contact</a>
     </nav>
-    <a href="#contact" class="btn btn-primary nav-cta">Book Free Session</a>
-    <a href="#contact" class="nav-contact-mobile">Contact Us</a>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+      <span class="lang-en">EN</span> / <span class="lang-am">አማ</span>
+    </button>
+    <a href="#contact" class="btn btn-primary nav-cta" data-en="Book Free Session" data-am="ነፃ ክፍለ ጊዜ ይያዙ">Book Free Session</a>
+    <a href="#contact" class="nav-contact-mobile" data-en="Contact Us" data-am="ያግኙን">Contact Us</a>
     <button class="nav-burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#contact">Contact</a>
-    <a href="#contact" class="btn btn-primary btn-block">Book Free Session</a>
+    <a href="#about" data-en="About" data-am="ስለ እኛ">About</a>
+    <a href="#programs" data-en="Programs" data-am="ፕሮግራሞች">Programs</a>
+    <a href="#contact" data-en="Contact" data-am="ያግኙን">Contact</a>
+    <a href="#contact" class="btn btn-primary btn-block" data-en="Book Free Session" data-am="ነፃ ክፍለ ጊዜ ይያዙ">Book Free Session</a>
   </div>
 </header>
 
@@ -744,25 +768,25 @@
   <span class="float-icon fi-7">∑x²</span>
  <span class="hero-badge">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3L22 9l-5 5.1L18.2 22 12 18.3 5.8 22 7 14.1 2 9l7.1-.7Z"/></svg>
-  First Session<br><strong>FREE</strong>
+  <span data-en="First Session" data-am="የመጀመሪያ ክፍለ ጊዜ">First Session</span><br><strong data-en="FREE" data-am="ነፃ">FREE</strong>
 </span>
   <div class="hero-inner">
-       <h1>Private <span class="accent">Tutor</span></h1>
-    <p class="sub" style="font-weight:700;">Interactive tutoring for students in Grade 5–12.</p>
+       <h1><span data-en="Private " data-am="የግል ">Private </span><span class="accent" data-en="Tutor" data-am="አስጠኚ">Tutor</span></h1>
+    <p class="sub" style="font-weight:700;" data-en="Interactive tutoring for students in Grade 5–12." data-am="ከ5ኛ እስከ 12ኛ ክፍል ላሉ ተማሪዎች በይነተገናኝ ትምህርት እርዳታ።">Interactive tutoring for students in Grade 5–12.</p>
    <div class="subject-marquee reveal">
   <div class="subject-track">
-    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 6l7 7-7 7M20 6l-5 12"/></svg>Math</span>
-    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-9 0-16 7-16 16 9 0 16-7 16-16Z"/><path d="M6 18c3-5 6-8 12-12"/></svg>Biology</span>
-    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/></svg>Physics</span>
-    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6M10 2v6l-6 11a1.8 1.8 0 0 0 1.6 2.7h12.8a1.8 1.8 0 0 0 1.6-2.7L14 8V2"/><path d="M7.5 15h9"/></svg>Chemistry</span>
-    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h13"/><path d="M9 7h6M9 11h6"/></svg>SAT</span>
-    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v3H9zM8.5 12.5l2.5 2.5 4.5-5"/></svg>ACT</span>
-    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 6l7 7-7 7M20 6l-5 12"/></svg>Math</span>
-    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-9 0-16 7-16 16 9 0 16-7 16-16Z"/><path d="M6 18c3-5 6-8 12-12"/></svg>Biology</span>
-    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/></svg>Physics</span>
-    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6M10 2v6l-6 11a1.8 1.8 0 0 0 1.6 2.7h12.8a1.8 1.8 0 0 0 1.6-2.7L14 8V2"/><path d="M7.5 15h9"/></svg>Chemistry</span>
-    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h13"/><path d="M9 7h6M9 11h6"/></svg>SAT</span>
-    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v3H9zM8.5 12.5l2.5 2.5 4.5-5"/></svg>ACT</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 6l7 7-7 7M20 6l-5 12"/></svg data-en="Math" data-am="ሂሳብ">Math</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-9 0-16 7-16 16 9 0 16-7 16-16Z"/><path d="M6 18c3-5 6-8 12-12"/></svg data-en="Biology" data-am="ባዮሎጂ">Biology</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/></svg data-en="Physics" data-am="ፊዚክስ">Physics</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6M10 2v6l-6 11a1.8 1.8 0 0 0 1.6 2.7h12.8a1.8 1.8 0 0 0 1.6-2.7L14 8V2"/><path d="M7.5 15h9"/></svg data-en="Chemistry" data-am="ኬሚስትሪ">Chemistry</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h13"/><path d="M9 7h6M9 11h6"/></svg data-en="SAT" data-am="SAT">SAT</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v3H9zM8.5 12.5l2.5 2.5 4.5-5"/></svg data-en="ACT" data-am="ACT">ACT</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 6l7 7-7 7M20 6l-5 12"/></svg data-en="Math" data-am="ሂሳብ">Math</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c-9 0-16 7-16 16 9 0 16-7 16-16Z"/><path d="M6 18c3-5 6-8 12-12"/></svg data-en="Biology" data-am="ባዮሎጂ">Biology</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/></svg data-en="Physics" data-am="ፊዚክስ">Physics</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6M10 2v6l-6 11a1.8 1.8 0 0 0 1.6 2.7h12.8a1.8 1.8 0 0 0 1.6-2.7L14 8V2"/><path d="M7.5 15h9"/></svg data-en="Chemistry" data-am="ኬሚስትሪ">Chemistry</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h13"/><path d="M9 7h6M9 11h6"/></svg data-en="SAT" data-am="SAT">SAT</span>
+    <span class="subject-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v3H9zM8.5 12.5l2.5 2.5 4.5-5"/></svg data-en="ACT" data-am="ACT">ACT</span>
   </div>
 </div>
    <div class="hero-actions">
@@ -776,30 +800,30 @@
 <section class="section-pad" id="programs">
   <div class="container">
     <div class="section-head reveal">
-      <h2>What We Help With</h2>
-      <p>A focused approach to building real understanding, not just memorization.</p>
+      <h2 data-en="What We Help With" data-am="የምንረዳባቸው ጉዳዮች">What We Help With</h2>
+      <p data-en="A focused approach to building real understanding, not just memorization." data-am="በቃል ከማስታወስ ይልቅ እውነተኛ ግንዛቤን ለመገንባት ያተኮረ አካሔድ።">A focused approach to building real understanding, not just memorization.</p>
     </div>
     <div class="services-grid">
       <div class="service-card reveal reveal-stagger" style="--delay:.05s">
-        <h3>Homework Help</h3>
-        <p>Get support understanding assignments and building strong foundations.</p>
+        <h3 data-en="Homework Help" data-am="የቤት ስራ እገዛ">Homework Help</h3>
+        <p data-en="Get support understanding assignments and building strong foundations." data-am="ስራዎችን ለመረዳት እና ጠንካራ መሰረት ለመገንባት ድጋፍ ያግኙ።">Get support understanding assignments and building strong foundations.</p>
       </div>
       <div class="service-card reveal reveal-stagger" style="--delay:.15s">
-        <h3>Test Prep</h3>
-        <p>Preparation for:</p>
+        <h3 data-en="Test Prep" data-am="የፈተና ዝግጅት">Test Prep</h3>
+        <p data-en="Preparation for:" data-am="ዝግጅት ለ:">Preparation for:</p>
         <ul>
-          <li>Quizzes</li>
-          <li>Exams</li>
-          <li>Finals</li>
+          <li data-en="Quizzes" data-am="ኩዊዞች">Quizzes</li>
+          <li data-en="Exams" data-am="ፈተናዎች">Exams</li>
+          <li data-en="Finals" data-am="የመጨረሻ ፈተናዎች">Finals</li>
         </ul>
       </div>
       <div class="service-card reveal reveal-stagger" style="--delay:.25s">
-        <h3>Better Grades</h3>
-        <p>Develop stronger study habits and improve academic performance.</p>
+        <h3 data-en="Better Grades" data-am="የተሻለ ውጤት">Better Grades</h3>
+        <p data-en="Develop stronger study habits and improve academic performance." data-am="ጠንካራ የጥናት ልምዶችን ማዳበር እና የትምህርት አፈጻጸምን ማሻሻል።">Develop stronger study habits and improve academic performance.</p>
       </div>
       <div class="service-card reveal reveal-stagger" style="--delay:.35s">
-        <h3>Personalized Learning</h3>
-        <p>Custom lesson plans with interactive teaching designed around each student's needs.</p>
+        <h3 data-en="Personalized Learning" data-am="ግላዊ ትምህርት">Personalized Learning</h3>
+        <p data-en="Custom lesson plans with interactive teaching designed around each student's needs." data-am="እንደ እያንዳንዱ ተማሪ ፍላጎት የተዘጋጁ ልዩ የትምህርት እቅዶች ከበይነተገናኝ ማስተማር ጋር።">Custom lesson plans with interactive teaching designed around each student's needs.</p>
       </div>
     </div>
   </div>
@@ -809,79 +833,79 @@
 <section class="section-pad" style="padding-top:0;">
   <div class="container">
     <div class="section-head reveal">
-      <h2>Find the Right Plan</h2>
-      <p>Every plan starts with a free consultation session.</p>
+      <h2 data-en="Find the Right Plan" data-am="ትክክለኛውን እቅድ ይምረጡ">Find the Right Plan</h2>
+      <p data-en="Every plan starts with a free consultation session." data-am="እያንዳንዱ እቅድ በነፃ የምክክር ክፍለ ጊዜ ይጀምራል።">Every plan starts with a free consultation session.</p>
     </div>
     <div class="pricing-grid">
 
       <div class="price-card reveal reveal-stagger" style="--delay:.05s">
         <div class="price-emoji"></div>
-        <h3>Foundation</h3>
-        <p class="price-tagline">Keep Them on Track</p>
+        <h3 data-en="Foundation" data-am="መሰረት">Foundation</h3>
+        <p class="price-tagline" data-en="Keep Them on Track" data-am="በትክክለኛው መንገድ ላይ ያቆዩዋቸው">Keep Them on Track</p>
         <div class="price-amount">$180</div>
-        <div class="price-freq">/month · 1 session/week · 1 hr per session</div>
+        <div class="price-freq" data-en="/month · 1 session/week · 1 hr per session" data-am="በወር · 1 ክፍለ ጊዜ/ሳምንት · 1 ሰዓት በክፍለ ጊዜ">/month · 1 session/week · 1 hr per session</div>
         <div class="price-features">
           <div class="price-feature">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 L6.5 12 L13 4"/></svg>
-            Homework support
+            <span data-en="Homework support" data-am="የቤት ስራ ድጋፍ">Homework support</span>
           </div>
           <div class="price-feature">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 L6.5 12 L13 4"/></svg>
-            Review challenging topics
+            <span data-en="Review challenging topics" data-am="ፈታኝ ርዕሶችን መከለስ">Review challenging topics</span>
           </div>
           <div class="price-feature">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 L6.5 12 L13 4"/></svg>
-            Stay prepared for quizzes &amp; exams
+            <span data-en="Stay prepared for quizzes &amp; exams" data-am="ለኩዊዞች እና ፈተናዎች ዝግጁ ይሁኑ">Stay prepared for quizzes &amp; exams</span>
           </div>
         </div>
-        <a href="#contact" class="btn btn-secondary btn-block plan-btn" data-plan="Foundation — $180/month">Get Started</a>
+        <a href="#contact" class="btn btn-secondary btn-block plan-btn" data-plan="Foundation — $180/month" data-en="Get Started" data-am="ይጀምሩ">Get Started</a>
       </div>
 
       <div class="price-card featured reveal reveal-stagger" style="--delay:.15s">
-        <span class="price-badge">⭐ MOST POPULAR</span>
+        <span class="price-badge">⭐ <span data-en="MOST POPULAR" data-am="በጣም ተወዳጅ">MOST POPULAR</span></span>
         <div class="price-emoji"></div>
-        <h3>Growth</h3>
-        <p class="price-tagline">Help Them Reach the Next Level</p>
+        <h3 data-en="Growth" data-am="እድገት">Growth</h3>
+        <p class="price-tagline" data-en="Help Them Reach the Next Level" data-am="ወደ ቀጣዩ ደረጃ እንዲደርሱ እርዷቸው">Help Them Reach the Next Level</p>
         <div class="price-amount">$360</div>
-        <div class="price-freq">/month · 2 sessions/week· 1 hr per session</div>
+        <div class="price-freq" data-en="/month · 2 sessions/week · 1 hr per session" data-am="በወር · 2 ክፍለ ጊዜዎች/ሳምንት · 1 ሰዓት በክፍለ ጊዜ">/month · 2 sessions/week· 1 hr per session</div>
         <div class="price-features">
           <div class="price-feature">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 L6.5 12 L13 4"/></svg>
-            Strengthen weak areas
+            <span data-en="Strengthen weak areas" data-am="ደካማ ቦታዎችን ማጠናከር">Strengthen weak areas</span>
           </div>
           <div class="price-feature">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 L6.5 12 L13 4"/></svg>
-            Practice until concepts click
+            <span data-en="Practice until concepts click" data-am="ጽንሰ ሀሳቦች እስኪገቡ ድረስ መለማመድ">Practice until concepts click</span>
           </div>
           <div class="price-feature">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 L6.5 12 L13 4"/></svg>
-            Build confidence for tests
+            <span data-en="Build confidence for tests" data-am="ለፈተናዎች መተማመንን መገንባት">Build confidence for tests</span>
           </div>
         </div>
-        <a href="#contact" class="btn btn-secondary btn-block plan-btn" data-plan="Growth — $360/month">Get Started</a>
+        <a href="#contact" class="btn btn-secondary btn-block plan-btn" data-plan="Growth — $360/month" data-en="Get Started" data-am="ይጀምሩ">Get Started</a>
       </div>
 
       <div class="price-card reveal reveal-stagger" style="--delay:.25s">
         <div class="price-emoji"></div>
-        <h3>Intensive</h3>
-        <p class="price-tagline">Close the Learning Gap</p>
+        <h3 data-en="Intensive" data-am="ተጠናከረ">Intensive</h3>
+        <p class="price-tagline" data-en="Close the Learning Gap" data-am="የትምህርት ክፍተትን መዝጋት">Close the Learning Gap</p>
         <div class="price-amount">$540</div>
-        <div class="price-freq">/month · 3 sessions/week · 1 hr per session</div>
+        <div class="price-freq" data-en="/month · 3 sessions/week · 1 hr per session" data-am="በወር · 3 ክፍለ ጊዜዎች/ሳምንት · 1 ሰዓት በክፍለ ጊዜ">/month · 3 sessions/week · 1 hr per session</div>
         <div class="price-features">
           <div class="price-feature">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 L6.5 12 L13 4"/></svg>
-            Find missing foundations
+            <span data-en="Find missing foundations" data-am="የጎደሉ መሰረቶችን ማግኘት">Find missing foundations</span>
           </div>
           <div class="price-feature">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 L6.5 12 L13 4"/></svg>
-            Relearn difficult concepts
+            <span data-en="Relearn difficult concepts" data-am="አስቸጋሪ ጽንሰ ሀሳቦችን እንደገና መማር">Relearn difficult concepts</span>
           </div>
           <div class="price-feature">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5 L6.5 12 L13 4"/></svg>
-            Get back on grade level
+            <span data-en="Get back on grade level" data-am="ወደ ክፍል ደረጃ መመለስ">Get back on grade level</span>
           </div>
         </div>
-        <a href="#contact" class="btn btn-secondary btn-block plan-btn" data-plan="Intensive — $540/month">Get Started</a>
+        <a href="#contact" class="btn btn-secondary btn-block plan-btn" data-plan="Intensive — $540/month" data-en="Get Started" data-am="ይጀምሩ">Get Started</a>
       </div>
 
     </div>
@@ -892,12 +916,12 @@
 <section class="section-pad" id="about" style="padding-top:0;">
   <div class="about reveal">
     <div class="about-inner">
-      <span class="about-badge">Meet Your Tutor</span>
-      <h2>Elshaday Tilahun</h2>
+      <span class="about-badge" data-en="Meet Your Tutor" data-am="አስጠኚዎን ይተዋወቁ">Meet Your Tutor</span>
+      <h2 data-en="Elshaday Tilahun" data-am="እልሻዳይ ጥላሁን">Elshaday Tilahun</h2>
       <div class="about-cred">
-        <p><strong>MS, Engineering, Science &amp; Technology Entrepreneurship</strong> — University of Notre Dame</p>
-        <p><strong>B.S. Biology</strong></p>
-        <p>2 + years of Experience in healthcare training, and explaining complex scientific concepts.</p>
+        <p><strong data-en="MS, Engineering, Science &amp; Technology Entrepreneurship" data-am="ማስተርስ ዲግሪ በኢንጂነሪንግ፣ ሳይንስ እና ቴክኖሎጂ ስራ ፈጠራ">MS, Engineering, Science &amp; Technology Entrepreneurship</strong> — <span data-en="University of Notre Dame" data-am="ኖትር ዳም ዩኒቨርሲቲ">University of Notre Dame</span></p>
+        <p><strong data-en="B.S. Biology" data-am="የመጀመሪያ ዲግሪ በባዮሎጂ">B.S. Biology</strong></p>
+        <p data-en="2 + years of Experience in healthcare training, and explaining complex scientific concepts." data-am="ከ2 ዓመታት በላይ በጤና እንክብካቤ ስልጠና እና ውስብስብ ሳይንሳዊ ፅንሰ ሀሳቦችን በማብራራት ልምድ አለው።">2 + years of Experience in healthcare training, and explaining complex scientific concepts.</p>
       </div>
          </div>
   </div>
@@ -907,81 +931,81 @@
 <section class="section-pad" id="contact">
   <div class="container">
     <div class="section-head reveal">
-      <h2>Let's Get Started</h2>
-      <p>Book a free session directly, or send a message and we'll follow up within 24 hours.</p>
+      <h2 data-en="Let's Get Started" data-am="እንጀምር">Let's Get Started</h2>
+      <p data-en="Book a free session directly, or send a message and we'll follow up within 24 hours." data-am="በቀጥታ ነፃ ክፍለ ጊዜ ይያዙ ወይም መልእክት ይላኩልን በ24 ሰዓት ውስጥ እንመልስልዎታለን።">Book a free session directly, or send a message and we'll follow up within 24 hours.</p>
     </div>
 
     <div class="contact-grid">
 
       <!-- Calendly panel -->
       <div class="contact-panel reveal reveal-stagger" style="--delay:.05s">
-        <h3>Schedule Directly</h3>
-        <p class="desc">Pick a time that works for you — first session is free.</p>
+        <h3 data-en="Schedule Directly" data-am="በቀጥታ ቀጠሮ ይያዙ">Schedule Directly</h3>
+        <p class="desc" data-en="Pick a time that works for you — first session is free." data-am="ለእርስዎ የሚስማማ ሰዓት ይምረጡ — የመጀመሪያው ክፍለ ጊዜ ነፃ ነው።">Pick a time that works for you — first session is free.</p>
         <div class="calendly-frame-wrap" id="calendlyWrap">
           <div>
-            <p>Calendly scheduling embeds here.</p>
-            <a href="#" class="btn btn-primary" id="calendlyBtn">Book Through Calendly</a>
+            <p data-en="Calendly scheduling embeds here." data-am="የCalendly ቀጠሮ ማስያዣ እዚህ ይታያል።">Calendly scheduling embeds here.</p>
+            <a href="#" class="btn btn-primary" id="calendlyBtn" data-en="Book Through Calendly" data-am="በCalendly በኩል ይያዙ">Book Through Calendly</a>
           </div>
         </div>
       </div>
      
       <!-- Formspree contact form -->
       <div class="contact-panel reveal reveal-stagger" style="--delay:.15s">
-        <h3>Send a Message</h3>
-        <p class="desc">Tell us about your student and we'll reach out with next steps.</p>
+        <h3 data-en="Send a Message" data-am="መልእክት ይላኩ">Send a Message</h3>
+        <p class="desc" data-en="Tell us about your student and we'll reach out with next steps." data-am="ስለ ተማሪዎ ይንገሩን እና ቀጣይ ደረጃዎችን ይዘን እንመለሳለን።">Tell us about your student and we'll reach out with next steps.</p>
 
         <form id="contactForm" action="https://formspree.io/f/mkodagqe" method="POST">
           <input type="hidden" name="Selected Plan" id="selectedPlanInput" value="">
 
           <div class="form-row">
-            <label for="fName">Name</label>
-            <input type="text" id="fName" name="Name" required placeholder="Your name">
+            <label for="fName" data-en="Name" data-am="ስም">Name</label>
+            <input type="text" id="fName" name="Name" required placeholder="Your name" data-en-placeholder="Your name" data-am-placeholder="ስምዎ">
           </div>
           <div class="form-row">
-            <label for="fEmail">Parent Email</label>
-            <input type="email" id="fEmail" name="Parent Email" required placeholder="you@email.com">
+            <label for="fEmail" data-en="Parent Email" data-am="የወላጅ ኢሜይል">Parent Email</label>
+            <input type="email" id="fEmail" name="Parent Email" required placeholder="you@email.com" data-en-placeholder="you@email.com" data-am-placeholder="you@email.com">
           </div>
           <div class="form-row">
-            <label for="fGrade">Student Grade</label>
+            <label for="fGrade" data-en="Student Grade" data-am="የተማሪ ክፍል">Student Grade</label>
             <select id="fGrade" name="Student Grade" required>
-              <option value="" disabled selected>Select grade</option>
-              <option>5th Grade</option>
-              <option>6th Grade</option>
-              <option>7th Grade</option>
-              <option>8th Grade</option>
-              <option>9th Grade</option>
-              <option>10th Grade</option>
-              <option>11th Grade</option>
-              <option>12th Grade</option>
+              <option value="" disabled selected data-en="Select grade" data-am="ክፍል ይምረጡ">Select grade</option>
+              <option data-en="5th Grade" data-am="5ኛ ክፍል">5th Grade</option>
+              <option data-en="6th Grade" data-am="6ኛ ክፍል">6th Grade</option>
+              <option data-en="7th Grade" data-am="7ኛ ክፍል">7th Grade</option>
+              <option data-en="8th Grade" data-am="8ኛ ክፍል">8th Grade</option>
+              <option data-en="9th Grade" data-am="9ኛ ክፍል">9th Grade</option>
+              <option data-en="10th Grade" data-am="10ኛ ክፍል">10th Grade</option>
+              <option data-en="11th Grade" data-am="11ኛ ክፍል">11th Grade</option>
+              <option data-en="12th Grade" data-am="12ኛ ክፍል">12th Grade</option>
             </select>
           </div>
           <div class="form-row">
-            <label for="fSubject">Subject Needed</label>
+            <label for="fSubject" data-en="Subject Needed" data-am="የሚያስፈልግ ትምህርት">Subject Needed</label>
             <select id="fSubject" name="Subject Needed" required>
-              <option value="" disabled selected>Select subject</option>
-              <option>Math</option>
-              <option>Biology</option>
-              <option>Physics</option>
-              <option>Chemistry</option>
-              <option>SAT Prep</option>
-              <option>ACT Prep</option>
-              <option>Multiple Subjects</option>
+              <option value="" disabled selected data-en="Select subject" data-am="ትምህርት ይምረጡ">Select subject</option>
+              <option data-en="Math" data-am="ሂሳብ">Math</option>
+              <option data-en="Biology" data-am="ባዮሎጂ">Biology</option>
+              <option data-en="Physics" data-am="ፊዚክስ">Physics</option>
+              <option data-en="Chemistry" data-am="ኬሚስትሪ">Chemistry</option>
+              <option data-en="SAT Prep" data-am="የSAT ዝግጅት">SAT Prep</option>
+              <option data-en="ACT Prep" data-am="የACT ዝግጅት">ACT Prep</option>
+              <option data-en="Multiple Subjects" data-am="በርካታ ትምህርቶች">Multiple Subjects</option>
             </select>
           </div>
           <div class="form-row">
-            <label for="fMessage">Message</label>
-            <textarea id="fMessage" name="Message" placeholder="Tell us a bit about your student's goals..."></textarea>
+            <label for="fMessage" data-en="Message" data-am="መልእክት">Message</label>
+            <textarea id="fMessage" name="Message" placeholder="Tell us a bit about your student's goals..." data-en-placeholder="Tell us a bit about your student's goals..." data-am-placeholder="ስለ ተማሪዎ ግቦች ትንሽ ይንገሩን..."></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+          <button type="submit" class="btn btn-primary btn-block" data-en="Submit" data-am="ላክ">Submit</button>
         </form>
 
         <div class="form-success" id="formSuccess">
           <div class="check">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1E3A5F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 L9.5 18 L20 6"/></svg>
           </div>
-          <h4>Thank you!</h4>
-          <p>We will respond within 24 hours.</p>
+          <h4 data-en="Thank you!" data-am="እናመሰግናለን!">Thank you!</h4>
+          <p data-en="We will respond within 24 hours." data-am="በ24 ሰዓት ውስጥ እንመልስልዎታለን።">We will respond within 24 hours.</p>
         </div>
       </div>
 
@@ -1001,6 +1025,30 @@
 </footer>
 
 <script>
+  // Language toggle (EN / Amharic)
+  const langToggle = document.getElementById('langToggle');
+  const translatableEls = document.querySelectorAll('[data-en]');
+  const placeholderEls = document.querySelectorAll('[data-en-placeholder]');
+  let currentLang = 'en';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    document.body.classList.toggle('lang-am', lang === 'am');
+    document.documentElement.lang = lang === 'am' ? 'am' : 'en';
+    translatableEls.forEach(el => {
+      const text = lang === 'am' ? el.dataset.am : el.dataset.en;
+      if (text !== undefined) el.textContent = text;
+    });
+    placeholderEls.forEach(el => {
+      const text = lang === 'am' ? el.dataset.amPlaceholder : el.dataset.enPlaceholder;
+      if (text !== undefined) el.setAttribute('placeholder', text);
+    });
+  }
+
+  langToggle.addEventListener('click', () => {
+    applyLang(currentLang === 'en' ? 'am' : 'en');
+  });
+
   // Mobile menu toggle
   const burgerBtn = document.getElementById('burgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
