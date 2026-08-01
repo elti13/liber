@@ -1049,6 +1049,10 @@
     applyLang(currentLang === 'en' ? 'am' : 'en');
   });
 
+  // Auto-set language from URL, e.g. ?lang=am
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  if (urlLang === 'am') applyLang('am');
+ 
   // Mobile menu toggle
   const burgerBtn = document.getElementById('burgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
