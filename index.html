@@ -571,12 +571,37 @@
     color: var(--white);
     border-radius: 32px;
     margin: 0 24px;
-    padding: 64px 32px;
+    padding: 64px 40px;
   }
   .about-inner {
     max-width: 680px;
     margin: 0 auto;
     text-align: center;
+  }
+  .about-two-col {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+    max-width: 680px;
+  }
+  @media (min-width: 800px) {
+    .about-two-col {
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
+      max-width: 900px;
+      gap: 48px;
+    }
+    .about-col-left {
+      flex: 0 0 260px;
+    }
+    .about-col-right {
+      flex: 1;
+      padding-top: 8px;
+    }
+    .about-photo { margin: 0 0 20px; }
+    .about-focus { text-align: left; margin-left: 0; }
   }
   .about-badge {
     display: inline-block;
@@ -959,27 +984,31 @@
 <!-- ===== ABOUT ===== -->
 <section class="section-pad" id="about" style="padding-top:0;">
   <div class="about reveal">
-    <div class="about-inner">
-      <div class="about-photo">
-        <img src="photo_2026-07-25_16-51-05.jpg" alt="Elshaday Tilahun" onerror="this.style.display='none'">
-      </div>
-      <span class="about-badge" data-en="Meet Your Tutor" data-am="አስጠኚዎን ይተዋወቁ">Meet Your Tutor</span>
-      <h2 data-en="Elshaday Tilahun" data-am="እልሻዳይ ጥላሁን">Elshaday Tilahun</h2>
+    <div class="about-inner about-two-col">
 
-      <div class="about-cred about-cred-top">
-        <p data-en="M.S. Engineering, Science &amp; Technology Entrepreneurship (ESTEEM), University of Notre Dame" data-am="ማስተርስ ዲግሪ በኢንጂነሪንግ፣ ሳይንስ እና ቴክኖሎጂ ስራ ፈጠራ (ESTEEM)፣ ኖትር ዳም ዩኒቨርሲቲ">M.S. Engineering, Science &amp; Technology Entrepreneurship (ESTEEM), University of Notre Dame</p>
-        <p data-en="B.S. Biology" data-am="የመጀመሪያ ዲግሪ በባዮሎጂ">B.S. Biology</p>
-      </div>
-
-      <div class="about-bio">
-        <p data-en="I meet every student where they are, and adjust to each student's comprehension level, and if something isn't landing, I break it down further, and further, until it actually makes sense. My focus is always on understanding, not memorization: helping students connect ideas and think through problems on their own." data-am="እያንዳንዱን ተማሪ ባለበት ደረጃ አገኘዋለሁ፣ ለእያንዳንዱ ተማሪ የመረዳት ደረጃ እራሴን አስተካክላለሁ፣ ነገሩ ግልጽ ካልሆነለት፣ ይበልጥ እና ይበልጥ እከፋፍለዋለሁ፣ በትክክል እስኪገባው ድረስ። ትኩረቴ ሁልጊዜ በመረዳት ላይ ነው፣ በቃል ማጥናት ላይ አይደለም፦ ተማሪዎች ሀሳቦችን እንዲያገናኙ እና በራሳቸው ችግሮችን እንዲያስቡ እረዳለሁ።">I meet every student where they are, and adjust to each student's comprehension level, and if something isn't landing, I break it down further, and further, until it actually makes sense. My focus is always on understanding, not memorization: helping students connect ideas and think through problems on their own.</p>
-
-        <p data-en="That approach isn't limited to school-age students. I've helped adults transitioning into healthcare from completely different careers understand complex material." data-am="ይህ አካሄድ ለትምህርት ቤት እድሜ ተማሪዎች ብቻ የተወሰነ አይደለም። ወደ ጤና እንክብካቤ ሙያ ከተለያዩ ሙያዎች የሚሸጋገሩ አዋቂዎች ውስብስብ ይዘቶችን እንዲረዱ ረድቻለሁ።">That approach isn't limited to school-age students. I've helped adults transitioning into healthcare from completely different careers understand complex material.</p>
-
-        <p data-en="I also enjoy working with students who have ADHD or dyslexia. While I'm not a learning specialist, I incorporate practical strategies such as bionic reading, color filters, and other evidence-informed study techniques to make learning more accessible. More importantly, I help students develop study habits and learning systems they can continue using long after our tutoring sessions end." data-am="እንዲሁም ADHD ወይም ዲስሌክሲያ ካለባቸው ተማሪዎች ጋር መስራት ያስደስተኛል። የመማር ስፔሻሊስት ባልሆንም፣ እንደ ባዮኒክ ንባብ፣ የቀለም ማጣሪያዎች እና ሌሎች በማስረጃ የተደገፉ የጥናት ዘዴዎችን በመጠቀም ትምህርትን ይበልጥ ተደራሽ አደርጋለሁ። ከሁሉም በላይ፣ ተማሪዎች ከትምህርት ክፍለ ጊዜያችን ባለፈ ሊጠቀሙባቸው የሚችሉ የጥናት ልምዶችን እና ስርዓቶችን እንዲያዳብሩ እረዳቸዋለሁ።">I also enjoy working with students who have ADHD or dyslexia. While I'm not a learning specialist, I incorporate practical strategies such as bionic reading, color filters, and other evidence-informed study techniques to make learning more accessible. More importantly, I help students develop study habits and learning systems they can continue using long after our tutoring sessions end.</p>
+      <div class="about-col-left">
+        <div class="about-photo">
+          <img src="elshaday.jpg" alt="Elshaday Tilahun" onerror="this.style.display='none'">
+        </div>
+        <span class="about-badge" data-en="Meet Your Tutor" data-am="አስጠኚዎን ይተዋወቁ">Meet Your Tutor</span>
+        <h2 data-en="Elshaday Tilahun" data-am="እልሻዳይ ጥላሁን">Elshaday Tilahun</h2>
+        <div class="about-cred-top">
+          <p data-en="M.S. Engineering, Science &amp; Technology Entrepreneurship (ESTEEM), University of Notre Dame" data-am="ማስተርስ ዲግሪ በኢንጂነሪንግ፣ ሳይንስ እና ቴክኖሎጂ ስራ ፈጠራ (ESTEEM)፣ ኖትር ዳም ዩኒቨርሲቲ">M.S. Engineering, Science &amp; Technology Entrepreneurship (ESTEEM), University of Notre Dame</p>
+          <p data-en="B.S. Biology" data-am="የመጀመሪያ ዲግሪ በባዮሎጂ">B.S. Biology</p>
+        </div>
+        <p class="about-focus" data-en="Outside of tutoring, I enjoy writing and running." data-am="ከትምህርት ስራ ውጪ፣ መፃፍ እና መሮጥ ያስደስተኛል።">Outside of tutoring, I enjoy writing and running.</p>
       </div>
 
-      <p class="about-focus" data-en="Outside of tutoring, I enjoy writing and running." data-am="ከትምህርት ስራ ውጪ፣ መፃፍ እና መሮጥ ያስደስተኛል።">Outside of tutoring, I enjoy writing and running.</p>
+      <div class="about-col-right">
+        <div class="about-bio">
+          <p data-en="I meet every student where they are, and adjust to each student's comprehension level, and if something isn't landing, I break it down further, and further, until it actually makes sense. My focus is always on understanding, not memorization: helping students connect ideas and think through problems on their own." data-am="እያንዳንዱን ተማሪ ባለበት ደረጃ አገኘዋለሁ፣ ለእያንዳንዱ ተማሪ የመረዳት ደረጃ እራሴን አስተካክላለሁ፣ ነገሩ ግልጽ ካልሆነለት፣ ይበልጥ እና ይበልጥ እከፋፍለዋለሁ፣ በትክክል እስኪገባው ድረስ። ትኩረቴ ሁልጊዜ በመረዳት ላይ ነው፣ በቃል ማጥናት ላይ አይደለም፦ ተማሪዎች ሀሳቦችን እንዲያገናኙ እና በራሳቸው ችግሮችን እንዲያስቡ እረዳለሁ።">I meet every student where they are, and adjust to each student's comprehension level, and if something isn't landing, I break it down further, and further, until it actually makes sense. My focus is always on understanding, not memorization: helping students connect ideas and think through problems on their own.</p>
+
+          <p data-en="That approach isn't limited to school-age students. I've helped adults transitioning into healthcare from completely different careers understand complex material." data-am="ይህ አካሄድ ለትምህርት ቤት እድሜ ተማሪዎች ብቻ የተወሰነ አይደለም። ወደ ጤና እንክብካቤ ሙያ ከተለያዩ ሙያዎች የሚሸጋገሩ አዋቂዎች ውስብስብ ይዘቶችን እንዲረዱ ረድቻለሁ።">That approach isn't limited to school-age students. I've helped adults transitioning into healthcare from completely different careers understand complex material.</p>
+
+          <p data-en="I also enjoy working with students who have ADHD or dyslexia. While I'm not a learning specialist, I incorporate practical strategies such as bionic reading, color filters, and other evidence-informed study techniques to make learning more accessible. More importantly, I help students develop study habits and learning systems they can continue using long after our tutoring sessions end." data-am="እንዲሁም ADHD ወይም ዲስሌክሲያ ካለባቸው ተማሪዎች ጋር መስራት ያስደስተኛል። የመማር ስፔሻሊስት ባልሆንም፣ እንደ ባዮኒክ ንባብ፣ የቀለም ማጣሪያዎች እና ሌሎች በማስረጃ የተደገፉ የጥናት ዘዴዎችን በመጠቀም ትምህርትን ይበልጥ ተደራሽ አደርጋለሁ። ከሁሉም በላይ፣ ተማሪዎች ከትምህርት ክፍለ ጊዜያችን ባለፈ ሊጠቀሙባቸው የሚችሉ የጥናት ልምዶችን እና ስርዓቶችን እንዲያዳብሩ እረዳቸዋለሁ።">I also enjoy working with students who have ADHD or dyslexia. While I'm not a learning specialist, I incorporate practical strategies such as bionic reading, color filters, and other evidence-informed study techniques to make learning more accessible. More importantly, I help students develop study habits and learning systems they can continue using long after our tutoring sessions end.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
